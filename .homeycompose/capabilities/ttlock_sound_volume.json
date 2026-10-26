@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Sound volume",
+    "da": "Lydstyrke"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "min": 1,
+  "max": 5,
+  "step": 1,
+  "decimals": 0
+}

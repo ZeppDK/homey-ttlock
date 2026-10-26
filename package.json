@@ -1,0 +1,16 @@
+{
+  "name": "dk.sepp.ttlock",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Homey app for TTLock smart locks (cloud API)",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "homey": "^4.6.1"
+  }
+}

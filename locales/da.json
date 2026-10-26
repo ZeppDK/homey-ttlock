@@ -1,0 +1,44 @@
+{
+  "pair": {
+    "missing_credentials": "Åbn indstillingerne for TTLock-appen (Apps, TTLock, Konfigurer) og udfyld først clientId og clientSecret.",
+    "door_sensor_name": "{{lock}} dørsensor"
+  },
+  "device": {
+    "no_gateway": "Denne lås har ingen gateway og kan derfor ikke styres fra Homey.",
+    "relogin": "TTLock-login er udløbet. Brug Reparer på denne enhed for at logge ind igen.",
+    "reachable_again": "Låsen kan nås igen."
+  },
+  "settings": {
+    "intro": "Opret en applikation på open.ttlock.com (euopen.ttlock.com for Europa) og indtast dens client ID og secret her.",
+    "client_id": "Client ID",
+    "client_secret": "Client secret",
+    "region": "Region",
+    "region_eu": "Europa (euapi.ttlock.com)",
+    "region_cn": "Kina (cnapi.ttlock.com)",
+    "region_custom": "Brugerdefineret",
+    "base_url": "Basis-URL",
+    "poll_interval": "Standard opdateringsinterval (minutter, bruges til nyligt tilføjede enheder)",
+    "monthly_limit": "Månedlig grænse for API-kald (30.000 i den gratis TTLock-plan)",
+    "save": "Gem",
+    "saved": "Gemt",
+    "test_title": "Test forbindelsen",
+    "test_intro": "Logger ind med din TTLock-konto og viser dine låse. Værdierne ovenfor bruges (du behøver ikke gemme først). Adgangskoden gemmes ikke.",
+    "username": "TTLock-brugernavn",
+    "password": "TTLock-adgangskode",
+    "testing": "Tester...",
+    "test_failed": "Mislykkedes: {{error}}",
+    "test_ok": "OK, fandt {{count}} lås(e).",
+    "webhook_title": "Webhook",
+    "webhook_intro": "Indsæt denne URL som callback-URL i TTLock Management Center for at få låsehændelser i realtid.",
+    "webhook_missing": "Ikke sat op (tilføj WEBHOOK_ID og WEBHOOK_SECRET i env.json)",
+    "usage_title": "API-forbrug",
+    "api_calls": "{{count}} af {{limit}} kald denne måned ({{month}})",
+    "no_calls": "ingen kald endnu",
+    "api_warning": "over 80 % af grænsen er brugt",
+    "session_title": "Session",
+    "session_intro": "Glemmer det gemte TTLock-login. Brug bagefter Reparer på en enhed for at logge ind igen.",
+    "clear_session": "Ryd session",
+    "clear_confirm": "Glem det gemte TTLock-login?",
+    "session_cleared": "Sessionen er ryddet. Brug Reparer på en enhed for at logge ind igen."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": {
+    "en": "Lock",
+    "da": "Lås"
+  },
+  "class": "lock",
+  "capabilities": [
+    "locked",
+    "measure_battery",
+    "alarm_battery",
+    "measure_signal_strength",
+    "alarm_tamper",
+    "alarm_generic",
+    "ttlock_last_user",
+    "ttlock_last_method",
+    "ttlock_last_event_time"
+  ],
+  "connectivity": ["cloud"],
+  "platforms": ["local"],
+  "energy": {
+    "batteries": ["OTHER"]
+  },
+  "images": {
+    "small": "/drivers/lock/assets/images/small.png",
+    "large": "/drivers/lock/assets/images/large.png",
+    "xlarge": "/drivers/lock/assets/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": { "en": "TTLock username", "da": "TTLock-brugernavn" },
+        "usernamePlaceholder": { "en": "Email or phone used in the TTLock app", "da": "E-mail eller telefonnummer fra TTLock-appen" },
+        "passwordLabel": { "en": "TTLock password", "da": "TTLock-adgangskode" }
+      },
+      "navigation": { "next": "list_devices" }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": { "en": "TTLock username", "da": "TTLock-brugernavn" },
+        "usernamePlaceholder": { "en": "Email or phone used in the TTLock app", "da": "E-mail eller telefonnummer fra TTLock-appen" },
+        "passwordLabel": { "en": "TTLock password", "da": "TTLock-adgangskode" }
+      }
+    }
+  ]
+}

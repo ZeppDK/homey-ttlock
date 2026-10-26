@@ -1,0 +1,110 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Last method",
+    "da": "Sidste metode"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "values": [
+    {
+      "id": "app",
+      "title": {
+        "en": "App",
+        "da": "App"
+      }
+    },
+    {
+      "id": "passcode",
+      "title": {
+        "en": "Passcode",
+        "da": "Kode"
+      }
+    },
+    {
+      "id": "card",
+      "title": {
+        "en": "IC card",
+        "da": "IC-kort"
+      }
+    },
+    {
+      "id": "fingerprint",
+      "title": {
+        "en": "Fingerprint",
+        "da": "Fingeraftryk"
+      }
+    },
+    {
+      "id": "key",
+      "title": {
+        "en": "Mechanical key",
+        "da": "Mekanisk nøgle"
+      }
+    },
+    {
+      "id": "remote",
+      "title": {
+        "en": "Remote",
+        "da": "Fjernbetjening"
+      }
+    },
+    {
+      "id": "auto",
+      "title": {
+        "en": "Automatic",
+        "da": "Automatisk"
+      }
+    },
+    {
+      "id": "gateway",
+      "title": {
+        "en": "Gateway",
+        "da": "Gateway"
+      }
+    },
+    {
+      "id": "inside",
+      "title": {
+        "en": "From inside",
+        "da": "Indefra"
+      }
+    },
+    {
+      "id": "qr",
+      "title": {
+        "en": "QR code",
+        "da": "QR-kode"
+      }
+    },
+    {
+      "id": "face",
+      "title": {
+        "en": "Face",
+        "da": "Ansigt"
+      }
+    },
+    {
+      "id": "palm",
+      "title": {
+        "en": "Palm vein",
+        "da": "Håndvene"
+      }
+    },
+    {
+      "id": "wrist_strap",
+      "title": {
+        "en": "Wrist strap",
+        "da": "Håndledsrem"
+      }
+    },
+    {
+      "id": "unknown",
+      "title": {
+        "en": "Unknown",
+        "da": "Ukendt"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "pair": {
+    "missing_credentials": "Open the TTLock app settings (Apps, TTLock, Configure) and fill in the clientId and clientSecret first.",
+    "door_sensor_name": "{{lock}} door sensor"
+  },
+  "device": {
+    "no_gateway": "This lock has no gateway, so it cannot be controlled from Homey.",
+    "relogin": "TTLock login expired. Use Repair on this device to log in again.",
+    "reachable_again": "The lock is reachable again."
+  },
+  "settings": {
+    "intro": "Create an application at open.ttlock.com (euopen.ttlock.com for Europe) and enter its client ID and secret here.",
+    "client_id": "Client ID",
+    "client_secret": "Client secret",
+    "region": "Region",
+    "region_eu": "Europe (euapi.ttlock.com)",
+    "region_cn": "China (cnapi.ttlock.com)",
+    "region_custom": "Custom",
+    "base_url": "Base URL",
+    "poll_interval": "Default poll interval (minutes, used for newly added devices)",
+    "monthly_limit": "Monthly API call limit (30,000 on the free TTLock plan)",
+    "save": "Save",
+    "saved": "Saved",
+    "test_title": "Test connection",
+    "test_intro": "Logs in with your TTLock app account and lists your locks. The values above are used (no need to save first). The password is not stored.",
+    "username": "TTLock username",
+    "password": "TTLock password",
+    "testing": "Testing...",
+    "test_failed": "Failed: {{error}}",
+    "test_ok": "OK, found {{count}} lock(s).",
+    "webhook_title": "Webhook",
+    "webhook_intro": "Paste this URL as the callback URL in the TTLock Management Center to get lock events in real time.",
+    "webhook_missing": "Not configured (add WEBHOOK_ID and WEBHOOK_SECRET to env.json)",
+    "usage_title": "API usage",
+    "api_calls": "{{count}} of {{limit}} calls this month ({{month}})",
+    "no_calls": "no calls yet",
+    "api_warning": "over 80% of the limit used",
+    "session_title": "Session",
+    "session_intro": "Forgets the stored TTLock login. Use Repair on a device afterwards to log in again.",
+    "clear_session": "Clear session",
+    "clear_confirm": "Forget the stored TTLock login?",
+    "session_cleared": "Session cleared. Use Repair on a device to log in again."
+  }
+}

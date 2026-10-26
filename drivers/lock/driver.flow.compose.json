@@ -1,0 +1,1622 @@
+{
+  "triggers": [
+    {
+      "id": "ttlock_unlocked",
+      "title": {
+        "en": "Unlocked",
+        "da": "Låst op"
+      },
+      "titleFormatted": {
+        "en": "Unlocked with [[method]]",
+        "da": "Låst op med [[method]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "method",
+          "values": [
+            {
+              "id": "any",
+              "title": {
+                "en": "Any method",
+                "da": "Enhver metode"
+              }
+            },
+            {
+              "id": "app",
+              "title": {
+                "en": "App",
+                "da": "App"
+              }
+            },
+            {
+              "id": "passcode",
+              "title": {
+                "en": "Passcode",
+                "da": "Kode"
+              }
+            },
+            {
+              "id": "card",
+              "title": {
+                "en": "IC card",
+                "da": "IC-kort"
+              }
+            },
+            {
+              "id": "fingerprint",
+              "title": {
+                "en": "Fingerprint",
+                "da": "Fingeraftryk"
+              }
+            },
+            {
+              "id": "key",
+              "title": {
+                "en": "Mechanical key",
+                "da": "Mekanisk nøgle"
+              }
+            },
+            {
+              "id": "remote",
+              "title": {
+                "en": "Remote",
+                "da": "Fjernbetjening"
+              }
+            },
+            {
+              "id": "auto",
+              "title": {
+                "en": "Automatic",
+                "da": "Automatisk"
+              }
+            },
+            {
+              "id": "gateway",
+              "title": {
+                "en": "Gateway",
+                "da": "Gateway"
+              }
+            },
+            {
+              "id": "inside",
+              "title": {
+                "en": "From inside",
+                "da": "Indefra"
+              }
+            },
+            {
+              "id": "qr",
+              "title": {
+                "en": "QR code",
+                "da": "QR-kode"
+              }
+            },
+            {
+              "id": "face",
+              "title": {
+                "en": "Face",
+                "da": "Ansigt"
+              }
+            },
+            {
+              "id": "palm",
+              "title": {
+                "en": "Palm vein",
+                "da": "Håndvene"
+              }
+            },
+            {
+              "id": "wrist_strap",
+              "title": {
+                "en": "Wrist strap",
+                "da": "Håndledsrem"
+              }
+            },
+            {
+              "id": "unknown",
+              "title": {
+                "en": "Unknown",
+                "da": "Ukendt"
+              }
+            }
+          ]
+        }
+      ],
+      "tokens": [
+        {
+          "name": "method",
+          "type": "string",
+          "title": {
+            "en": "Method",
+            "da": "Metode"
+          },
+          "example": "passcode"
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "title": {
+            "en": "User",
+            "da": "Bruger"
+          },
+          "example": "Sepp"
+        },
+        {
+          "name": "credential",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "title": {
+            "en": "Time",
+            "da": "Tidspunkt"
+          },
+          "example": "2026-10-26 14:30:00"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "title": {
+            "en": "Description",
+            "da": "Beskrivelse"
+          },
+          "example": "Unlocked with passcode"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_locked",
+      "title": {
+        "en": "Locked",
+        "da": "Låst"
+      },
+      "titleFormatted": {
+        "en": "Locked with [[method]]",
+        "da": "Låst med [[method]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "method",
+          "values": [
+            {
+              "id": "any",
+              "title": {
+                "en": "Any method",
+                "da": "Enhver metode"
+              }
+            },
+            {
+              "id": "app",
+              "title": {
+                "en": "App",
+                "da": "App"
+              }
+            },
+            {
+              "id": "passcode",
+              "title": {
+                "en": "Passcode",
+                "da": "Kode"
+              }
+            },
+            {
+              "id": "card",
+              "title": {
+                "en": "IC card",
+                "da": "IC-kort"
+              }
+            },
+            {
+              "id": "fingerprint",
+              "title": {
+                "en": "Fingerprint",
+                "da": "Fingeraftryk"
+              }
+            },
+            {
+              "id": "key",
+              "title": {
+                "en": "Mechanical key",
+                "da": "Mekanisk nøgle"
+              }
+            },
+            {
+              "id": "remote",
+              "title": {
+                "en": "Remote",
+                "da": "Fjernbetjening"
+              }
+            },
+            {
+              "id": "auto",
+              "title": {
+                "en": "Automatic",
+                "da": "Automatisk"
+              }
+            },
+            {
+              "id": "gateway",
+              "title": {
+                "en": "Gateway",
+                "da": "Gateway"
+              }
+            },
+            {
+              "id": "inside",
+              "title": {
+                "en": "From inside",
+                "da": "Indefra"
+              }
+            },
+            {
+              "id": "qr",
+              "title": {
+                "en": "QR code",
+                "da": "QR-kode"
+              }
+            },
+            {
+              "id": "face",
+              "title": {
+                "en": "Face",
+                "da": "Ansigt"
+              }
+            },
+            {
+              "id": "palm",
+              "title": {
+                "en": "Palm vein",
+                "da": "Håndvene"
+              }
+            },
+            {
+              "id": "wrist_strap",
+              "title": {
+                "en": "Wrist strap",
+                "da": "Håndledsrem"
+              }
+            },
+            {
+              "id": "unknown",
+              "title": {
+                "en": "Unknown",
+                "da": "Ukendt"
+              }
+            }
+          ]
+        }
+      ],
+      "tokens": [
+        {
+          "name": "method",
+          "type": "string",
+          "title": {
+            "en": "Method",
+            "da": "Metode"
+          },
+          "example": "passcode"
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "title": {
+            "en": "User",
+            "da": "Bruger"
+          },
+          "example": "Sepp"
+        },
+        {
+          "name": "credential",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "title": {
+            "en": "Time",
+            "da": "Tidspunkt"
+          },
+          "example": "2026-10-26 14:30:00"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "title": {
+            "en": "Description",
+            "da": "Beskrivelse"
+          },
+          "example": "Unlocked with passcode"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_auto_locked",
+      "title": {
+        "en": "Auto-locked",
+        "da": "Auto-låst"
+      },
+      "tokens": [
+        {
+          "name": "time",
+          "type": "string",
+          "title": {
+            "en": "Time",
+            "da": "Tidspunkt"
+          },
+          "example": "2026-10-26 14:30:00"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_failed_attempt",
+      "title": {
+        "en": "Failed unlock attempt",
+        "da": "Mislykket oplåsningsforsøg"
+      },
+      "tokens": [
+        {
+          "name": "method",
+          "type": "string",
+          "title": {
+            "en": "Method",
+            "da": "Metode"
+          },
+          "example": "passcode"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "title": {
+            "en": "Description",
+            "da": "Beskrivelse"
+          },
+          "example": "IC card unlock failed"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_system_locked",
+      "title": {
+        "en": "System locked after too many attempts",
+        "da": "Systemet låst efter for mange forsøg"
+      }
+    },
+    {
+      "id": "ttlock_tamper",
+      "title": {
+        "en": "Tamper alert",
+        "da": "Sabotagealarm"
+      }
+    },
+    {
+      "id": "ttlock_door_opened",
+      "title": {
+        "en": "Door opened",
+        "da": "Døren blev åbnet"
+      }
+    },
+    {
+      "id": "ttlock_door_closed",
+      "title": {
+        "en": "Door closed",
+        "da": "Døren blev lukket"
+      }
+    },
+    {
+      "id": "ttlock_door_left_open",
+      "title": {
+        "en": "Door left open alarm",
+        "da": "Alarm for åben dør"
+      }
+    },
+    {
+      "id": "ttlock_event",
+      "title": {
+        "en": "Any lock event",
+        "da": "Enhver låsehændelse"
+      },
+      "tokens": [
+        {
+          "name": "record_type",
+          "type": "number",
+          "title": {
+            "en": "Record type",
+            "da": "Hændelsestype"
+          },
+          "example": 4
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "title": {
+            "en": "Description",
+            "da": "Beskrivelse"
+          },
+          "example": "Unlocked with passcode"
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "title": {
+            "en": "Method",
+            "da": "Metode"
+          },
+          "example": "passcode"
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "title": {
+            "en": "User",
+            "da": "Bruger"
+          },
+          "example": "Sepp"
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "title": {
+            "en": "Success",
+            "da": "Lykkedes"
+          },
+          "example": true
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "title": {
+            "en": "Time",
+            "da": "Tidspunkt"
+          },
+          "example": "2026-10-26 14:30:00"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_offline",
+      "title": {
+        "en": "Lock went offline",
+        "da": "Låsen gik offline"
+      },
+      "tokens": [
+        {
+          "name": "reason",
+          "type": "string",
+          "title": {
+            "en": "Reason",
+            "da": "Årsag"
+          },
+          "example": "The gateway is offline"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_online",
+      "title": {
+        "en": "Lock came online",
+        "da": "Låsen kom online"
+      },
+      "tokens": [
+        {
+          "name": "reason",
+          "type": "string",
+          "title": {
+            "en": "Reason",
+            "da": "Årsag"
+          },
+          "example": "Reachable again"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passage_mode_on",
+      "title": {
+        "en": "Passage mode turned on",
+        "da": "Gennemgangstilstand blev slået til"
+      },
+      "hint": {
+        "en": "Fires when the lock settings poll sees passage mode switched on.",
+        "da": "Udløses, når opdateringen af låseindstillinger ser, at gennemgangstilstand er slået til."
+      }
+    },
+    {
+      "id": "ttlock_passage_mode_off",
+      "title": {
+        "en": "Passage mode turned off",
+        "da": "Gennemgangstilstand blev slået fra"
+      },
+      "hint": {
+        "en": "Fires when the lock settings poll sees passage mode switched off.",
+        "da": "Udløses, når opdateringen af låseindstillinger ser, at gennemgangstilstand er slået fra."
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "ttlock_is_online",
+      "title": {
+        "en": "Lock !{{is|isn't}} reachable",
+        "da": "Låsen !{{kan|kan ikke}} nås"
+      }
+    },
+    {
+      "id": "ttlock_last_method_is",
+      "title": {
+        "en": "Last method !{{is|isn't}}",
+        "da": "Sidste metode !{{er|er ikke}}"
+      },
+      "titleFormatted": {
+        "en": "Last method !{{is|isn't}} [[method]]",
+        "da": "Sidste metode !{{er|er ikke}} [[method]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "method",
+          "values": [
+            {
+              "id": "app",
+              "title": {
+                "en": "App",
+                "da": "App"
+              }
+            },
+            {
+              "id": "passcode",
+              "title": {
+                "en": "Passcode",
+                "da": "Kode"
+              }
+            },
+            {
+              "id": "card",
+              "title": {
+                "en": "IC card",
+                "da": "IC-kort"
+              }
+            },
+            {
+              "id": "fingerprint",
+              "title": {
+                "en": "Fingerprint",
+                "da": "Fingeraftryk"
+              }
+            },
+            {
+              "id": "key",
+              "title": {
+                "en": "Mechanical key",
+                "da": "Mekanisk nøgle"
+              }
+            },
+            {
+              "id": "remote",
+              "title": {
+                "en": "Remote",
+                "da": "Fjernbetjening"
+              }
+            },
+            {
+              "id": "auto",
+              "title": {
+                "en": "Automatic",
+                "da": "Automatisk"
+              }
+            },
+            {
+              "id": "gateway",
+              "title": {
+                "en": "Gateway",
+                "da": "Gateway"
+              }
+            },
+            {
+              "id": "inside",
+              "title": {
+                "en": "From inside",
+                "da": "Indefra"
+              }
+            },
+            {
+              "id": "qr",
+              "title": {
+                "en": "QR code",
+                "da": "QR-kode"
+              }
+            },
+            {
+              "id": "face",
+              "title": {
+                "en": "Face",
+                "da": "Ansigt"
+              }
+            },
+            {
+              "id": "palm",
+              "title": {
+                "en": "Palm vein",
+                "da": "Håndvene"
+              }
+            },
+            {
+              "id": "wrist_strap",
+              "title": {
+                "en": "Wrist strap",
+                "da": "Håndledsrem"
+              }
+            },
+            {
+              "id": "unknown",
+              "title": {
+                "en": "Unknown",
+                "da": "Ukendt"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttlock_last_user_is",
+      "title": {
+        "en": "Last user !{{is|isn't}}",
+        "da": "Sidste bruger !{{er|er ikke}}"
+      },
+      "titleFormatted": {
+        "en": "Last user !{{is|isn't}} [[user]]",
+        "da": "Sidste bruger !{{er|er ikke}} [[user]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "user",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_exists",
+      "title": {
+        "en": "Passcode !{{exists|doesn't exist}}",
+        "da": "Koden !{{findes|findes ikke}}"
+      },
+      "titleFormatted": {
+        "en": "Passcode [[passcode]] !{{exists|doesn't exist}}",
+        "da": "Koden [[passcode]] !{{findes|findes ikke}}"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "passcode",
+          "placeholder": {
+            "en": "Passcode",
+            "da": "Kode"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_battery_below",
+      "title": {
+        "en": "Battery !{{is|isn't}} below",
+        "da": "Batteriet !{{er|er ikke}} under"
+      },
+      "titleFormatted": {
+        "en": "Battery !{{is|isn't}} below [[level]]%",
+        "da": "Batteriet !{{er|er ikke}} under [[level]]%"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "level",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "placeholder": {
+            "en": "20",
+            "da": "20"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passage_mode_is",
+      "title": {
+        "en": "Passage mode !{{is|isn't}} on",
+        "da": "Gennemgangstilstand !{{er|er ikke}} slået til"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "ttlock_passcode_onetime",
+      "title": {
+        "en": "Create one-time passcode",
+        "da": "Opret engangskode"
+      },
+      "titleFormatted": {
+        "en": "Create one-time passcode [[name]]",
+        "da": "Opret engangskode [[name]]"
+      },
+      "hint": {
+        "en": "Valid for 6 hours from now. Works without a gateway.",
+        "da": "Gyldig i 6 timer fra nu. Virker uden gateway."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "passcode",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "passcode_id",
+          "type": "number",
+          "title": {
+            "en": "Passcode ID",
+            "da": "Kode-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_period",
+      "title": {
+        "en": "Create timed passcode",
+        "da": "Opret tidsbegrænset kode"
+      },
+      "titleFormatted": {
+        "en": "Create passcode [[name]] from [[start_date]] [[start_time]] until [[end_date]] [[end_time]]",
+        "da": "Opret kode [[name]] fra [[start_date]] [[start_time]] til [[end_date]] [[end_time]]"
+      },
+      "hint": {
+        "en": "Random code, valid between the two times. Use it within 24 hours of the start time.",
+        "da": "Tilfældig kode, gyldig mellem de to tidspunkter. Brug den inden for 24 timer efter starttidspunktet."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        },
+        {
+          "type": "date",
+          "name": "start_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          }
+        },
+        {
+          "type": "time",
+          "name": "start_time",
+          "placeholder": {
+            "en": "14:30",
+            "da": "14:30"
+          }
+        },
+        {
+          "type": "date",
+          "name": "end_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          }
+        },
+        {
+          "type": "time",
+          "name": "end_time",
+          "placeholder": {
+            "en": "14:30",
+            "da": "14:30"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "passcode",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "passcode_id",
+          "type": "number",
+          "title": {
+            "en": "Passcode ID",
+            "da": "Kode-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_permanent",
+      "title": {
+        "en": "Create permanent passcode",
+        "da": "Opret permanent kode"
+      },
+      "titleFormatted": {
+        "en": "Create permanent passcode [[name]] [[code]]",
+        "da": "Opret permanent kode [[name]] [[code]]"
+      },
+      "hint": {
+        "en": "Leave the code empty for a random code. A custom code is 4 to 9 digits and is sent through the gateway.",
+        "da": "Lad koden stå tom for en tilfældig kode. En selvvalgt kode er på 4 til 9 cifre og sendes via gateway."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        },
+        {
+          "type": "text",
+          "name": "code",
+          "placeholder": {
+            "en": "Code (optional)",
+            "da": "Kode (valgfri)"
+          },
+          "required": false
+        }
+      ],
+      "tokens": [
+        {
+          "name": "passcode",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "passcode_id",
+          "type": "number",
+          "title": {
+            "en": "Passcode ID",
+            "da": "Kode-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_custom_period",
+      "title": {
+        "en": "Create timed passcode with own code",
+        "da": "Opret tidsbegrænset kode med egen kode"
+      },
+      "titleFormatted": {
+        "en": "Create passcode [[name]] with code [[code]] from [[start_date]] [[start_time]] until [[end_date]] [[end_time]]",
+        "da": "Opret kode [[name]] med koden [[code]] fra [[start_date]] [[start_time]] til [[end_date]] [[end_time]]"
+      },
+      "hint": {
+        "en": "The code is 4 to 9 digits and is sent through the gateway.",
+        "da": "Koden er på 4 til 9 cifre og sendes via gateway."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        },
+        {
+          "type": "text",
+          "name": "code",
+          "placeholder": {
+            "en": "Code",
+            "da": "Kode"
+          }
+        },
+        {
+          "type": "date",
+          "name": "start_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          }
+        },
+        {
+          "type": "time",
+          "name": "start_time",
+          "placeholder": {
+            "en": "14:30",
+            "da": "14:30"
+          }
+        },
+        {
+          "type": "date",
+          "name": "end_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          }
+        },
+        {
+          "type": "time",
+          "name": "end_time",
+          "placeholder": {
+            "en": "14:30",
+            "da": "14:30"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "passcode",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "passcode_id",
+          "type": "number",
+          "title": {
+            "en": "Passcode ID",
+            "da": "Kode-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_delete",
+      "title": {
+        "en": "Delete passcode",
+        "da": "Slet kode"
+      },
+      "titleFormatted": {
+        "en": "Delete passcode [[passcode]]",
+        "da": "Slet kode [[passcode]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "passcode",
+          "placeholder": {
+            "en": "Passcode",
+            "da": "Kode"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_passcode_set_end",
+      "title": {
+        "en": "Change end of passcode",
+        "da": "Ændr kodens udløb"
+      },
+      "titleFormatted": {
+        "en": "Set passcode [[passcode]] to end [[end_date]] [[end_time]]",
+        "da": "Lad koden [[passcode]] udløbe [[end_date]] [[end_time]]"
+      },
+      "hint": {
+        "en": "A random code that has never been used cannot be changed.",
+        "da": "En tilfældig kode, der aldrig er brugt, kan ikke ændres."
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "passcode",
+          "placeholder": {
+            "en": "Passcode",
+            "da": "Kode"
+          }
+        },
+        {
+          "type": "date",
+          "name": "end_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          }
+        },
+        {
+          "type": "time",
+          "name": "end_time",
+          "placeholder": {
+            "en": "14:30",
+            "da": "14:30"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_clear_passcodes",
+      "title": {
+        "en": "Delete all passcodes",
+        "da": "Slet alle koder"
+      },
+      "titleFormatted": {
+        "en": "Delete all passcodes [[confirm]]",
+        "da": "Slet alle koder [[confirm]]"
+      },
+      "hint": {
+        "en": "Creates a special code. Entering it on the lock keypad deletes ALL passcodes, including the ones you still need. Tick the box to confirm.",
+        "da": "Opretter en særlig kode. Når den indtastes på låsens tastatur, slettes ALLE koder, også dem du stadig har brug for. Sæt flueben for at bekræfte."
+      },
+      "args": [
+        {
+          "type": "checkbox",
+          "name": "confirm",
+          "title": {
+            "en": "I understand all passcodes will be deleted",
+            "da": "Jeg forstår, at alle koder bliver slettet"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "passcode",
+          "type": "string",
+          "title": {
+            "en": "Passcode",
+            "da": "Kode"
+          },
+          "example": "123456"
+        },
+        {
+          "name": "passcode_id",
+          "type": "number",
+          "title": {
+            "en": "Passcode ID",
+            "da": "Kode-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_card_add",
+      "title": {
+        "en": "Add IC card",
+        "da": "Tilføj IC-kort"
+      },
+      "titleFormatted": {
+        "en": "Add IC card [[card_number]] named [[name]] until [[end_date]]",
+        "da": "Tilføj IC-kort [[card_number]] med navnet [[name]] til [[end_date]]"
+      },
+      "hint": {
+        "en": "Leave the end date empty for a card without expiry. The card is sent through the gateway.",
+        "da": "Lad slutdatoen stå tom for et kort uden udløb. Kortet sendes via gateway."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "card_number",
+          "placeholder": {
+            "en": "Card number",
+            "da": "Kortnummer"
+          }
+        },
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          }
+        },
+        {
+          "type": "date",
+          "name": "end_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "ttlock_card_delete",
+      "title": {
+        "en": "Delete IC card",
+        "da": "Slet IC-kort"
+      },
+      "titleFormatted": {
+        "en": "Delete IC card [[card]]",
+        "da": "Slet IC-kort [[card]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "card",
+          "placeholder": {
+            "en": "Card",
+            "da": "Kort"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_fingerprint_delete",
+      "title": {
+        "en": "Delete fingerprint",
+        "da": "Slet fingeraftryk"
+      },
+      "titleFormatted": {
+        "en": "Delete fingerprint [[fingerprint]]",
+        "da": "Slet fingeraftryk [[fingerprint]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "fingerprint",
+          "placeholder": {
+            "en": "Fingerprint",
+            "da": "Fingeraftryk"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_ekey_send",
+      "title": {
+        "en": "Send eKey",
+        "da": "Send eKey"
+      },
+      "titleFormatted": {
+        "en": "Send eKey to [[username]] named [[name]] from [[start_date]] until [[end_date]] [[remote]]",
+        "da": "Send eKey til [[username]] med navnet [[name]] fra [[start_date]] til [[end_date]] [[remote]]"
+      },
+      "hint": {
+        "en": "The receiver must be a registered TTLock user. Leave both dates empty for a permanent eKey.",
+        "da": "Modtageren skal være en registreret TTLock-bruger. Lad begge datoer stå tomme for en permanent eKey."
+      },
+      "args": [
+        {
+          "type": "text",
+          "name": "username",
+          "placeholder": {
+            "en": "TTLock username",
+            "da": "TTLock-brugernavn"
+          }
+        },
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": {
+            "en": "Name",
+            "da": "Navn"
+          },
+          "required": false
+        },
+        {
+          "type": "date",
+          "name": "start_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          },
+          "required": false
+        },
+        {
+          "type": "date",
+          "name": "end_date",
+          "placeholder": {
+            "en": "26-10-2026",
+            "da": "26-10-2026"
+          },
+          "required": false
+        },
+        {
+          "type": "checkbox",
+          "name": "remote",
+          "title": {
+            "en": "Allow remote unlock",
+            "da": "Tillad fjernoplåsning"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "key_id",
+          "type": "number",
+          "title": {
+            "en": "eKey ID",
+            "da": "eKey-ID"
+          },
+          "example": 1234
+        }
+      ]
+    },
+    {
+      "id": "ttlock_ekey_freeze",
+      "title": {
+        "en": "Freeze eKey",
+        "da": "Frys eKey"
+      },
+      "titleFormatted": {
+        "en": "Freeze eKey [[ekey]]",
+        "da": "Frys eKey [[ekey]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "ekey",
+          "placeholder": {
+            "en": "eKey",
+            "da": "eKey"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_ekey_unfreeze",
+      "title": {
+        "en": "Unfreeze eKey",
+        "da": "Optø eKey"
+      },
+      "titleFormatted": {
+        "en": "Unfreeze eKey [[ekey]]",
+        "da": "Optø eKey [[ekey]]"
+      },
+      "args": [
+        {
+          "type": "autocomplete",
+          "name": "ekey",
+          "placeholder": {
+            "en": "eKey",
+            "da": "eKey"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_refresh",
+      "title": {
+        "en": "Refresh lock status",
+        "da": "Opdater låsens status"
+      },
+      "hint": {
+        "en": "Reads battery, signal and state from the TTLock cloud now.",
+        "da": "Henter batteri, signal og tilstand fra TTLock-skyen nu."
+      }
+    },
+    {
+      "id": "ttlock_recent_events",
+      "title": {
+        "en": "Get recent events",
+        "da": "Hent seneste hændelser"
+      },
+      "titleFormatted": {
+        "en": "Get the last [[count]] events",
+        "da": "Hent de seneste [[count]] hændelser"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "count",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "placeholder": {
+            "en": "5",
+            "da": "5"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "events",
+          "type": "string",
+          "title": {
+            "en": "Events",
+            "da": "Hændelser"
+          },
+          "example": "2026-10-26 14:30:00  Unlocked with app - Sepp"
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_autolock",
+      "title": {
+        "en": "Set auto-lock time",
+        "da": "Sæt auto-låsetid"
+      },
+      "titleFormatted": {
+        "en": "Set auto-lock time to [[seconds]] seconds",
+        "da": "Sæt auto-låsetid til [[seconds]] sekunder"
+      },
+      "hint": {
+        "en": "0 turns auto-lock off. Sent through the gateway.",
+        "da": "0 slår auto-lås fra. Sendes via gateway."
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "seconds",
+          "min": 0,
+          "max": 1800,
+          "step": 1,
+          "placeholder": {
+            "en": "10",
+            "da": "10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_passage_mode",
+      "title": {
+        "en": "Set passage mode",
+        "da": "Sæt gennemgangstilstand"
+      },
+      "titleFormatted": {
+        "en": "Turn passage mode [[mode]]",
+        "da": "Slå gennemgangstilstand [[mode]]"
+      },
+      "hint": {
+        "en": "Keeps the existing schedule and auto-unlock setting. In passage mode the lock stays unlocked.",
+        "da": "Beholder den eksisterende tidsplan og indstillingen for automatisk oplåsning. I gennemgangstilstand forbliver låsen åben."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_passage_schedule",
+      "title": {
+        "en": "Set passage mode schedule",
+        "da": "Sæt tidsplan for gennemgangstilstand"
+      },
+      "titleFormatted": {
+        "en": "Turn passage mode on from [[start_time]] to [[end_time]] on [[day_1]] [[day_2]] [[day_3]] [[day_4]] [[day_5]] [[day_6]] [[day_7]] [[auto_unlock]]",
+        "da": "Slå gennemgangstilstand til fra [[start_time]] til [[end_time]] på [[day_1]] [[day_2]] [[day_3]] [[day_4]] [[day_5]] [[day_6]] [[day_7]] [[auto_unlock]]"
+      },
+      "hint": {
+        "en": "Turns passage mode on with one weekly period. Replaces the existing schedule.",
+        "da": "Slår gennemgangstilstand til med én ugentlig periode. Erstatter den eksisterende tidsplan."
+      },
+      "args": [
+        {
+          "type": "time",
+          "name": "start_time",
+          "placeholder": {
+            "en": "08:00",
+            "da": "08:00"
+          }
+        },
+        {
+          "type": "time",
+          "name": "end_time",
+          "placeholder": {
+            "en": "16:00",
+            "da": "16:00"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_1",
+          "title": {
+            "en": "Monday",
+            "da": "Mandag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_2",
+          "title": {
+            "en": "Tuesday",
+            "da": "Tirsdag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_3",
+          "title": {
+            "en": "Wednesday",
+            "da": "Onsdag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_4",
+          "title": {
+            "en": "Thursday",
+            "da": "Torsdag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_5",
+          "title": {
+            "en": "Friday",
+            "da": "Fredag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_6",
+          "title": {
+            "en": "Saturday",
+            "da": "Lørdag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "day_7",
+          "title": {
+            "en": "Sunday",
+            "da": "Søndag"
+          }
+        },
+        {
+          "type": "checkbox",
+          "name": "auto_unlock",
+          "title": {
+            "en": "Unlock automatically when the period starts",
+            "da": "Lås automatisk op, når perioden starter"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_sound",
+      "title": {
+        "en": "Set lock sound",
+        "da": "Sæt låselyd"
+      },
+      "titleFormatted": {
+        "en": "Turn lock sound [[state]]",
+        "da": "Slå låselyd [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_volume",
+      "title": {
+        "en": "Set sound volume",
+        "da": "Sæt lydstyrke"
+      },
+      "titleFormatted": {
+        "en": "Set sound volume to [[volume]]",
+        "da": "Sæt lydstyrke til [[volume]]"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "volume",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "placeholder": {
+            "en": "3",
+            "da": "3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttlock_set_privacy",
+      "title": {
+        "en": "Set privacy lock",
+        "da": "Sæt privatlås"
+      },
+      "titleFormatted": {
+        "en": "Turn privacy lock [[state]]",
+        "da": "Slå privatlås [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttlock_sync_clock",
+      "title": {
+        "en": "Sync lock clock",
+        "da": "Synkronisér låsens ur"
+      },
+      "hint": {
+        "en": "Sets the clock of the lock to the current time. A wrong clock makes timed passcodes fail.",
+        "da": "Stiller låsens ur til det aktuelle tidspunkt. Et forkert ur får tidsbegrænsede koder til at fejle."
+      }
+    }
+  ]
+}

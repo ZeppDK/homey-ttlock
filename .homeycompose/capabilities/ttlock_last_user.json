@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Last user",
+    "da": "Sidste bruger"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

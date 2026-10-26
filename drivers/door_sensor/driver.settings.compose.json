@@ -1,0 +1,27 @@
+[
+  {
+    "id": "poll_interval",
+    "type": "number",
+    "label": { "en": "Poll interval", "da": "Opdateringsinterval" },
+    "hint": {
+      "en": "Minutes between battery updates. The door state itself comes from the webhook, see the app settings.",
+      "da": "Minutter mellem batteriopdateringer. Selve dørtilstanden kommer fra webhooken, se appens indstillinger."
+    },
+    "value": 15,
+    "min": 5,
+    "max": 60,
+    "units": { "en": "minutes", "da": "minutter" }
+  },
+  {
+    "type": "group",
+    "label": { "en": "Door sensor information", "da": "Dørsensoroplysninger" },
+    "children": [
+      {
+        "id": "door_not_closed_warning_time",
+        "type": "label",
+        "label": { "en": "Door-not-closed warning time", "da": "Advarselstid for åben dør" },
+        "value": ""
+      }
+    ]
+  }
+]

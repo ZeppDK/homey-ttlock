@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Gateway version",
+    "da": "Gatewayversion"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

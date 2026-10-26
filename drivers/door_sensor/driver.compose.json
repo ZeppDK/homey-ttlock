@@ -1,0 +1,54 @@
+{
+  "name": {
+    "en": "Door sensor",
+    "da": "Dørsensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_contact",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "connectivity": ["cloud"],
+  "platforms": ["local"],
+  "energy": {
+    "batteries": ["OTHER"]
+  },
+  "images": {
+    "small": "/drivers/door_sensor/assets/images/small.png",
+    "large": "/drivers/door_sensor/assets/images/large.png",
+    "xlarge": "/drivers/door_sensor/assets/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": { "en": "TTLock username", "da": "TTLock-brugernavn" },
+        "usernamePlaceholder": { "en": "Email or phone used in the TTLock app", "da": "E-mail eller telefonnummer fra TTLock-appen" },
+        "passwordLabel": { "en": "TTLock password", "da": "TTLock-adgangskode" }
+      },
+      "navigation": { "next": "list_devices" }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": { "en": "TTLock username", "da": "TTLock-brugernavn" },
+        "usernamePlaceholder": { "en": "Email or phone used in the TTLock app", "da": "E-mail eller telefonnummer fra TTLock-appen" },
+        "passwordLabel": { "en": "TTLock password", "da": "TTLock-adgangskode" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+<body>
+  <h1 class="homey-title">TTLock</h1>
+  <p class="homey-subtitle" data-i18n="settings.intro">Create an application at open.ttlock.com (euopen.ttlock.com for Europe) and enter its client ID and secret here.</p>
+
+  <fieldset class="homey-form-fieldset">
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="clientId" data-i18n="settings.client_id">Client ID</label>
+      <input class="homey-form-input" id="clientId" type="text" autocomplete="off" />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="clientSecret" data-i18n="settings.client_secret">Client secret</label>
+      <input class="homey-form-input" id="clientSecret" type="password" autocomplete="off" />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="region" data-i18n="settings.region">Region</label>
+      <select class="homey-form-input" id="region">
+        <option value="eu" data-i18n="settings.region_eu">Europe (euapi.ttlock.com)</option>
+        <option value="cn" data-i18n="settings.region_cn">China (cnapi.ttlock.com)</option>
+        <option value="custom" data-i18n="settings.region_custom">Custom</option>
+      </select>
+    </div>
+    <div class="homey-form-group" id="baseUrlGroup">
+      <label class="homey-form-label" for="baseUrl" data-i18n="settings.base_url">Base URL</label>
+      <input class="homey-form-input" id="baseUrl" type="text" placeholder="https://api.example.com" />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="pollInterval" data-i18n="settings.poll_interval">Default poll interval (minutes, used for newly added devices)</label>
+      <input class="homey-form-input" id="pollInterval" type="number" min="5" max="60" />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="monthlyLimit" data-i18n="settings.monthly_limit">Monthly API call limit (30,000 on the free TTLock plan)</label>
+      <input class="homey-form-input" id="monthlyLimit" type="number" min="1" />
+    </div>
+  </fieldset>
+
+  <button id="save" class="homey-button-primary-full" data-i18n="settings.save">Save</button>
+
+  <h2 class="homey-subtitle" data-i18n="settings.test_title">Test connection</h2>
+  <p data-i18n="settings.test_intro">Logs in with your TTLock app account and lists your locks. The values above are used (no need to save first). The password is not stored.</p>
+  <fieldset class="homey-form-fieldset">
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="username" data-i18n="settings.username">TTLock username</label>
+      <input class="homey-form-input" id="username" type="text" autocomplete="off" />
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="password" data-i18n="settings.password">TTLock password</label>
+      <input class="homey-form-input" id="password" type="password" autocomplete="off" />
+    </div>
+  </fieldset>
+  <button id="test" class="homey-button-secondary-full" data-i18n="settings.test_title">Test connection</button>
+  <p id="testResult"></p>
+
+  <h2 class="homey-subtitle" data-i18n="settings.webhook_title">Webhook</h2>
+  <p data-i18n="settings.webhook_intro">Paste this URL as the callback URL in the TTLock Management Center to get lock events in real time.</p>
+  <input class="homey-form-input" id="webhookUrl" type="text" readonly />
+
+  <h2 class="homey-subtitle" data-i18n="settings.usage_title">API usage</h2>
+  <p id="apiCalls"></p>
+
+  <h2 class="homey-subtitle" data-i18n="settings.session_title">Session</h2>
+  <p data-i18n="settings.session_intro">Forgets the stored TTLock login. Use Repair on a device afterwards to log in again.</p>
+  <button id="clearSession" class="homey-button-secondary-full" data-i18n="settings.clear_session">Clear session</button>
+
+<script type="text/javascript">
+  function onHomeyReady(Homey) {
+    var $ = function (id) { return document.getElementById(id); };
+    var keys = {
+      clientId: 'ttlock_client_id', clientSecret: 'ttlock_client_secret', region: 'ttlock_region', baseUrl: 'ttlock_base_url',
+      pollInterval: 'ttlock_poll_interval', monthlyLimit: 'ttlock_monthly_limit'
+    };
+    var WARN_AT = 0.8;
+
+    // Text from locales/*.json; the English text in the HTML / the fallback is used when Homey.__ is missing.
+    function t(key, fallback, tokens) {
+      var text = fallback;
+      try {
+        var translated = Homey.__(key, tokens);
+        if (translated && translated !== key) return translated;
+      } catch (err) { /* use the fallback */ }
+      Object.keys(tokens || {}).forEach(function (name) { text = text.replace('{{' + name + '}}', tokens[name]); });
+      return text;
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (element) {
+      element.textContent = t(element.getAttribute('data-i18n'), element.textContent);
+    });
+
+    function showBaseUrl() {
+      $('baseUrlGroup').style.display = $('region').value === 'custom' ? '' : 'none';
+    }
+
+    function showApiCalls() {
+      Homey.get('ttlock_api_calls', function (err, calls) {
+        Homey.get('ttlock_monthly_limit', function (err2, stored) {
+          var limit = Number(stored) || 30000;
+          var count = calls && calls.count || 0;
+          var text = t('settings.api_calls', '{{count}} of {{limit}} calls this month ({{month}})', {
+            count: count, limit: limit, month: calls ? calls.month : t('settings.no_calls', 'no calls yet')
+          });
+          var warn = count > limit * WARN_AT;
+          if (warn) text += ' - ' + t('settings.api_warning', 'over 80% of the limit used');
+          $('apiCalls').textContent = text;
+          $('apiCalls').style.color = warn ? '#d93025' : '';
+          $('apiCalls').style.fontWeight = warn ? 'bold' : '';
+        });
+      });
+    }
+
+    Object.keys(keys).forEach(function (field) {
+      Homey.get(keys[field], function (err, value) {
+        if (!err && value) $(field).value = value;
+        if (field === 'region') { if (!value) $('region').value = 'eu'; showBaseUrl(); }
+        if (field === 'pollInterval' && !value) $('pollInterval').value = 15;
+        if (field === 'monthlyLimit' && !value) $('monthlyLimit').value = 30000;
+      });
+    });
+    $('region').addEventListener('change', showBaseUrl);
+
+    Homey.api('GET', '/webhook-url', null, function (err, result) {
+      $('webhookUrl').value = err || !result.url ? t('settings.webhook_missing', 'Not configured (add WEBHOOK_ID and WEBHOOK_SECRET to env.json)') : result.url;
+    });
+    showApiCalls();
+    Homey.on('settings.set', function (name) {
+      if (name === 'ttlock_api_calls' || name === 'ttlock_monthly_limit') showApiCalls();
+    });
+
+    $('save').addEventListener('click', function () {
+      var pending = Object.keys(keys).length;
+      Object.keys(keys).forEach(function (field) {
+        var value = $(field).value.trim();
+        if (field === 'pollInterval') value = Math.min(60, Math.max(5, Number(value) || 15));
+        if (field === 'monthlyLimit') value = Math.max(1, Number(value) || 30000);
+        Homey.set(keys[field], value, function (err) {
+          if (err) return Homey.alert(err.message || err);
+          if (--pending === 0) Homey.alert(t('settings.saved', 'Saved'));
+        });
+      });
+    });
+
+    $('test').addEventListener('click', function () {
+      $('testResult').textContent = t('settings.testing', 'Testing...');
+      var body = {
+        username: $('username').value.trim(),
+        password: $('password').value,
+        clientId: $('clientId').value.trim(),
+        clientSecret: $('clientSecret').value.trim(),
+        region: $('region').value,
+        baseUrl: $('baseUrl').value.trim()
+      };
+      Homey.api('POST', '/test', body, function (err, result) {
+        $('testResult').textContent = err
+          ? t('settings.test_failed', 'Failed: {{error}}', { error: err.message || err })
+          : t('settings.test_ok', 'OK, found {{count}} lock(s).', { count: result.lockCount });
+      });
+    });
+
+    $('clearSession').addEventListener('click', function () {
+      Homey.confirm(t('settings.clear_confirm', 'Forget the stored TTLock login?'), null, function (err, ok) {
+        if (err || !ok) return;
+        Homey.api('POST', '/logout', {}, function (err2) {
+          Homey.alert(err2 ? (err2.message || err2) : t('settings.session_cleared', 'Session cleared. Use Repair on a device to log in again.'));
+        });
+      });
+    });
+
+    Homey.ready();
+  }
+</script>
+</body>
+</html>

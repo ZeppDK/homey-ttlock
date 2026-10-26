@@ -1,0 +1,31 @@
+{
+  "triggers": [
+    {
+      "id": "ttlock_gateway_offline",
+      "title": {
+        "en": "Gateway went offline",
+        "da": "Gatewayen gik offline"
+      },
+      "hint": {
+        "en": "The TTLock cloud can take a few minutes to notice that a gateway is offline.",
+        "da": "TTLock-skyen kan bruge nogle minutter på at opdage, at en gateway er offline."
+      }
+    },
+    {
+      "id": "ttlock_gateway_online",
+      "title": {
+        "en": "Gateway came online",
+        "da": "Gatewayen kom online"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "ttlock_gateway_is_online",
+      "title": {
+        "en": "Gateway !{{is|isn't}} online",
+        "da": "Gatewayen !{{er|er ikke}} online"
+      }
+    }
+  ]
+}

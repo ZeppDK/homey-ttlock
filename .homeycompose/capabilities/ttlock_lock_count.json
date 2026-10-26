@@ -1,0 +1,11 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Connected locks",
+    "da": "Tilsluttede låse"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 0
+}

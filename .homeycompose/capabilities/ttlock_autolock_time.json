@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Auto-lock time",
+    "da": "Auto-låsetid"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "min": 0,
+  "max": 1800,
+  "step": 1,
+  "decimals": 0,
+  "units": {
+    "en": "s",
+    "da": "s"
+  }
+}

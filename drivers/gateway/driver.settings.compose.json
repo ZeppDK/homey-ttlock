@@ -1,0 +1,39 @@
+[
+  {
+    "id": "poll_interval",
+    "type": "number",
+    "label": { "en": "Poll interval", "da": "Opdateringsinterval" },
+    "hint": {
+      "en": "Minutes between status updates. The TTLock cloud allows 30,000 calls per month, so keep this high.",
+      "da": "Minutter mellem statusopdateringer. TTLock-skyen tillader 30.000 kald pr. måned, så hold tallet højt."
+    },
+    "value": 15,
+    "min": 5,
+    "max": 60,
+    "units": { "en": "minutes", "da": "minutter" }
+  },
+  {
+    "type": "group",
+    "label": { "en": "Gateway information", "da": "Gatewayoplysninger" },
+    "children": [
+      {
+        "id": "gateway_mac",
+        "type": "label",
+        "label": { "en": "MAC address", "da": "MAC-adresse" },
+        "value": ""
+      },
+      {
+        "id": "network_name",
+        "type": "label",
+        "label": { "en": "Network name", "da": "Netværksnavn" },
+        "value": ""
+      },
+      {
+        "id": "version",
+        "type": "label",
+        "label": { "en": "Version", "da": "Version" },
+        "value": ""
+      }
+    ]
+  }
+]

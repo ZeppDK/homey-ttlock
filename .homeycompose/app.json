@@ -1,0 +1,44 @@
+{
+  "id": "dk.sepp.ttlock",
+  "version": "0.1.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "TTLock",
+    "da": "TTLock"
+  },
+  "description": {
+    "en": "Control TTLock smart locks through the TTLock cloud",
+    "da": "Styr TTLock-smartlåse via TTLock-skyen"
+  },
+  "category": [
+    "security"
+  ],
+  "permissions": [],
+  "brandColor": "#1E5EFF",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sepp"
+  },
+  "api": {
+    "getWebhookUrl": {
+      "method": "GET",
+      "path": "/webhook-url"
+    },
+    "testConnection": {
+      "method": "POST",
+      "path": "/test"
+    },
+    "logout": {
+      "method": "POST",
+      "path": "/logout"
+    }
+  }
+}

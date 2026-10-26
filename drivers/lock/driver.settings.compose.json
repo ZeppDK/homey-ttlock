@@ -1,0 +1,106 @@
+[
+  {
+    "id": "transport",
+    "type": "dropdown",
+    "label": { "en": "Transport", "da": "Forbindelse" },
+    "hint": {
+      "en": "How commands reach the lock. Bluetooth and local bridge are not available yet.",
+      "da": "Hvordan kommandoer når låsen. Bluetooth og lokal bro er ikke tilgængelige endnu."
+    },
+    "value": "auto",
+    "values": [
+      { "id": "auto", "label": { "en": "Auto (cloud for now)", "da": "Auto (indtil videre skyen)" } },
+      { "id": "cloud", "label": { "en": "Cloud (via gateway)", "da": "Skyen (via gateway)" } }
+    ]
+  },
+  {
+    "id": "poll_interval",
+    "type": "number",
+    "label": { "en": "Poll interval", "da": "Opdateringsinterval" },
+    "hint": {
+      "en": "Minutes between status updates. The TTLock cloud allows 30,000 calls per month, so keep this high.",
+      "da": "Minutter mellem statusopdateringer. TTLock-skyen tillader 30.000 kald pr. måned, så hold tallet højt."
+    },
+    "value": 15,
+    "min": 5,
+    "max": 60,
+    "units": { "en": "minutes", "da": "minutter" }
+  },
+  {
+    "id": "poll_state",
+    "type": "checkbox",
+    "label": { "en": "Poll lock state", "da": "Hent låsens tilstand" },
+    "hint": {
+      "en": "Ask the lock for its locked/unlocked state on every poll (one extra API call and gateway command).",
+      "da": "Spørg låsen om den er låst eller åben ved hver opdatering (ét ekstra API-kald og én gateway-kommando)."
+    },
+    "value": true
+  },
+  {
+    "id": "reset_tamper_seconds",
+    "type": "number",
+    "label": { "en": "Reset tamper alarm after", "da": "Nulstil sabotagealarm efter" },
+    "hint": {
+      "en": "Seconds until the tamper alarm switches off again by itself.",
+      "da": "Sekunder til sabotagealarmen slukker igen af sig selv."
+    },
+    "value": 60,
+    "min": 1,
+    "max": 3600,
+    "units": { "en": "seconds", "da": "sekunder" }
+  },
+  {
+    "type": "group",
+    "label": { "en": "Lock information", "da": "Låseoplysninger" },
+    "children": [
+      {
+        "id": "lock_id",
+        "type": "label",
+        "label": { "en": "Lock ID", "da": "Lås-ID" },
+        "value": ""
+      },
+      {
+        "id": "lock_mac",
+        "type": "label",
+        "label": { "en": "Lock MAC", "da": "Lås-MAC" },
+        "value": ""
+      },
+      {
+        "id": "lock_name",
+        "type": "label",
+        "label": { "en": "Lock name", "da": "Låsenavn" },
+        "value": ""
+      },
+      {
+        "id": "model",
+        "type": "label",
+        "label": { "en": "Model", "da": "Model" },
+        "value": ""
+      },
+      {
+        "id": "firmware",
+        "type": "label",
+        "label": { "en": "Firmware", "da": "Firmware" },
+        "value": ""
+      },
+      {
+        "id": "hardware",
+        "type": "label",
+        "label": { "en": "Hardware", "da": "Hardware" },
+        "value": ""
+      },
+      {
+        "id": "features",
+        "type": "label",
+        "label": { "en": "Features", "da": "Funktioner" },
+        "value": ""
+      },
+      {
+        "id": "last_detail_sync",
+        "type": "label",
+        "label": { "en": "Settings last read", "da": "Indstillinger sidst læst" },
+        "value": ""
+      }
+    ]
+  }
+]
