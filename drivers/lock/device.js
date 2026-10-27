@@ -16,6 +16,7 @@ const { LISTS, setLockSetting } = require('../../lib/actions');
 
 const OFFLINE_CODES = [-3002, -3036, -2012]; // gateway offline, lock offline, no gateway
 const DEFAULT_TAMPER_RESET_SECONDS = 60;
+const AUTOLOCK_CHECK_DELAY_SECONDS = 5; // margin after the auto-lock time before querying the state
 const LIST_CACHE_MS = 60 * 1000;
 
 class LockDevice extends Homey.Device {
@@ -34,11 +35,13 @@ class LockDevice extends Homey.Device {
   onUninit() {
     this.stopPolling();
     this.clearTamperTimer();
+    this.clearAutolockTimer();
   }
 
   onDeleted() {
     this.stopPolling();
     this.clearTamperTimer();
+    this.clearAutolockTimer();
   }
 
   async onSettings({ newSettings, changedKeys }) {
@@ -67,6 +70,23 @@ class LockDevice extends Homey.Device {
   clearTamperTimer() {
     if (this.tamperTimer) this.homey.clearTimeout(this.tamperTimer);
     this.tamperTimer = null;
+  }
+
+  clearAutolockTimer() {
+    if (this.autolockTimer) this.homey.clearTimeout(this.autolockTimer);
+    this.autolockTimer = null;
+  }
+
+  // TTLock sends no callback for auto-lock, so after an unlock the state is queried again
+  // once the auto-lock time has passed (verified on a real lock: locked stayed false otherwise).
+  scheduleAutolockCheck() {
+    const seconds = Number(this.getCapabilityValue('ttlock_autolock_time'));
+    if (!(seconds > 0) || this.hasNoRemoteAccess()) return;
+    this.clearAutolockTimer();
+    this.autolockTimer = this.homey.setTimeout(() => {
+      this.autolockTimer = null;
+      this.refreshState().catch(err => this.handleError(err));
+    }, (seconds + AUTOLOCK_CHECK_DELAY_SECONDS) * 1000);
   }
 
   // Homey timezone for local times and date args; undefined when the clock API is missing.
@@ -215,6 +235,7 @@ class LockDevice extends Homey.Device {
       throw err;
     }
     await this.refreshState().catch(err => this.handleError(err));
+    if (!value) this.scheduleAutolockCheck();
   }
 
   // queryOpenState: 0 locked, 1 unlocked, 2 unknown (leave the current value)
@@ -320,6 +341,7 @@ class LockDevice extends Homey.Device {
       if (info.action === 'unlock') {
         await this.setCapabilityValue('locked', false);
         await this.setCap('alarm_generic', false); // "system locked" ends with the next successful unlock
+        this.scheduleAutolockCheck();
       }
       if (info.action === 'lock') await this.setCapabilityValue('locked', true);
       if (info.action !== 'event') {

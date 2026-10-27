@@ -80,8 +80,9 @@
       var text = fallback;
       try {
         var translated = Homey.__(key, tokens);
-        if (translated && translated !== key) return translated;
+        if (translated && translated !== key) text = translated;
       } catch (err) { /* use the fallback */ }
+      // Homey.__ does not fill in {{tokens}} on the settings page, so always do it here.
       Object.keys(tokens || {}).forEach(function (name) { text = text.replace('{{' + name + '}}', tokens[name]); });
       return text;
     }

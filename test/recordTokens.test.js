@@ -55,9 +55,9 @@ test('recordToTokens: method is always one of the dropdown values', () => {
   assert.strictEqual(normalizeMethod('parking'), 'unknown');
 });
 
-test('recordTime: timezone uses lockDate, otherwise serverDate is preferred, each falls back to the other', () => {
+test('recordTime: serverDate is preferred (lock clocks drift), lockDate is the fallback', () => {
   const server = Date.UTC(2026, 0, 2, 3, 4, 5);
-  assert.strictEqual(recordTime({ lockDate: LOCK_DATE, serverDate: server }, TZ), '2026-10-26 13:30:15');
+  assert.strictEqual(recordTime({ lockDate: LOCK_DATE, serverDate: server }, TZ), '2026-01-02 04:04:05');
   assert.strictEqual(recordTime({ lockDate: LOCK_DATE, serverDate: server }), '2026-01-02 03:04:05');
   assert.strictEqual(recordTime({ serverDate: server }, TZ), '2026-01-02 04:04:05');
   assert.strictEqual(recordTime({ lockDate: LOCK_DATE }), '2026-10-26 12:30:15');

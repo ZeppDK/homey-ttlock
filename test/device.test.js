@@ -399,3 +399,28 @@ test('poll reads the list, detail and keypad; a failing detail does not stop the
   await device.poll();
   assert.strictEqual(device.caps.get('measure_signal_strength'), -60);
 });
+
+test('unlock schedules a state query after the auto-lock time (no callback exists for auto-lock)', async () => {
+  const device = makeDevice({
+    capabilities: ['locked', 'measure_battery', 'alarm_battery', 'alarm_generic', 'ttlock_last_user', 'ttlock_last_method', 'ttlock_last_event_time', 'ttlock_autolock_time'],
+  });
+  device.caps.set('ttlock_autolock_time', 60);
+  device.answer = (method, path) => (path === '/v3/lock/queryOpenState' ? { state: 0 } : {});
+  await device.applyRecord({ recordType: 1, success: 1, username: 'Sepp', lockDate: LOCK_DATE });
+  assert.strictEqual(device.caps.get('locked'), false);
+  assert.strictEqual(device.timers.length, 1);
+  assert.strictEqual(device.timers[0].ms, 65000);
+  device.timers[0].fn();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.strictEqual(device.caps.get('locked'), true);
+  assert.ok(device.calls.some(call => call.path === '/v3/lock/queryOpenState'));
+});
+
+test('no auto-lock timer when auto-lock is off', async () => {
+  const device = makeDevice({
+    capabilities: ['locked', 'alarm_generic', 'ttlock_last_user', 'ttlock_last_method', 'ttlock_last_event_time', 'ttlock_autolock_time'],
+  });
+  device.caps.set('ttlock_autolock_time', 0);
+  await device.applyRecord({ recordType: 1, success: 1, username: 'Sepp', lockDate: LOCK_DATE });
+  assert.strictEqual(device.timers.length, 0);
+});
