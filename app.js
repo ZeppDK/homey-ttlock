@@ -121,6 +121,22 @@ class TTLockApp extends Homey.App {
     this.homey.settings.unset(SESSION_KEY);
   }
 
+  // Diagnostic for the local-bridge work: which fields does /v3/key/list return for this account?
+  // Values are masked (type + length only) so no lock keys leave the Homey.
+  async keyFields() {
+    const res = await this.client.request('GET', '/v3/key/list', { pageNo: 1, pageSize: 20, sdkVersion: 2 });
+    const items = Array.isArray(res) ? res : (res.list || []);
+    const mask = value => (value && typeof value === 'object'
+      ? Object.fromEntries(Object.entries(value).map(([k, v]) => [k, mask(v)]))
+      : `${typeof value}(${String(value).length})`);
+    // lockVersion (protocol type/version, scene, group, org) is not secret and is needed to pick a bridge.
+    return {
+      envelope: Object.keys(res),
+      count: items.length,
+      keys: items.map(item => ({ ...mask(item), lockVersion: item.lockVersion, userType: item.userType, lockFlagPos: item.lockFlagPos, keyboardPwdVersion: item.keyboardPwdVersion })),
+    };
+  }
+
   // Diagnostic for the settings page / API: which BLE devices does the Homey hear, and how strongly?
   // query.service: optional service UUID filter (TTLock locks advertise 1910); query.timeout: scan ms.
   async bleScan({ service, timeout } = {}) {

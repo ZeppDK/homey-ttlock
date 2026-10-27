@@ -18,6 +18,11 @@ module.exports = {
     return { ok: true };
   },
 
+  // GET /key-fields -> field names (values masked) of the account's eKeys from /v3/key/list (bridge diagnostic)
+  async keyFields({ homey }) {
+    return homey.app.keyFields();
+  },
+
   // GET /ble-scan -> nearby BLE advertisements (diagnostic: is a lock within Homey's Bluetooth range?)
   async bleScan({ homey, query }) {
     return homey.app.bleScan(query || {});

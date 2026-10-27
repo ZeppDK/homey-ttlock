@@ -46,6 +46,10 @@
     "bleScan": {
       "method": "GET",
       "path": "/ble-scan"
+    },
+    "keyFields": {
+      "method": "GET",
+      "path": "/key-fields"
     }
   },
   "drivers": [
