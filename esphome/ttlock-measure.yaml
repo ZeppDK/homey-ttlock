@@ -1,0 +1,114 @@
+# Fase 4b, trin 2: passiv måling af låsens BLE-advertisements.
+# Lytter kun (ingen forbindelse til låsen) og sender hvert skift i låsens flag til MQTT,
+# så vi kan måle hvor hurtigt lås/lås op/auto-lock/manuel betjening kan ses.
+#
+# Flash:  esphome run ttlock-measure.yaml   (ESP32 i USB første gang, derefter OTA)
+# Lyt:    python mqtt-listen.py             (abonnerer på ttlock/measure/#)
+
+substitutions:
+  lock_mac: "96:FE:37:9E:2E:D2"
+
+esphome:
+  name: ttlock-measure
+  friendly_name: TTLock måling
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  power_save_mode: none
+
+logger:
+  level: INFO
+
+ota:
+  - platform: esphome
+
+time:
+  - platform: sntp
+    id: sntp_time
+
+mqtt:
+  id: mqtt_client
+  broker: 192.168.3.78
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+  topic_prefix: ttlock/measure
+  discovery: false
+  log_topic: ttlock/measure/log
+  birth_message:
+    topic: ttlock/measure/status
+    payload: online
+  will_message:
+    topic: ttlock/measure/status
+    payload: offline
+
+globals:
+  - id: last_flags
+    type: int
+    initial_value: "-1"
+  - id: last_battery
+    type: int
+    initial_value: "-1"
+  - id: adv_count
+    type: int
+    initial_value: "0"
+  - id: last_heartbeat
+    type: uint32_t
+    initial_value: "0"
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: false
+    interval: 320ms
+    window: 300ms
+  on_ble_manufacturer_data_advertise:
+    - mac_address: ${lock_mac}
+      manufacturer_id: "0305"   # TTLock V3: protocolType 5, protocolVersion 3 (little-endian company id)
+      then:
+        - lambda: |-
+            // x = manufacturer data efter company id: [0] scene, [1] flags, [2] batteri %, ... sidste 6 = MAC omvendt
+            // flags: 0x01 ulåst, 0x02 nye records, 0x04 indstillingstilstand, 0x10 dvale (status ugyldig)
+            id(adv_count) += 1;
+            if (x.size() < 3) {
+              ESP_LOGW("ttlock", "kort advertisement (%d bytes)", (int) x.size());
+              return;
+            }
+            int scene = x[0], flags = x[1], battery = x[2];
+            bool dormant = flags & 0x10;
+            bool unlocked = flags & 0x01;
+            char hex[64] = {0};
+            for (size_t i = 0; i < x.size() && i < 20; i++) sprintf(hex + i * 2, "%02x", x[i]);
+            uint32_t now = millis() / 1000;
+            bool changed = flags != id(last_flags) || battery != id(last_battery);
+            bool heartbeat = now - id(last_heartbeat) >= 30;
+            if (changed || heartbeat) {
+              auto t = id(sntp_time).now();
+              char msg[200];
+              snprintf(msg, sizeof(msg),
+                "{\"time\":\"%04d-%02d-%02d %02d:%02d:%02d\",\"flags\":\"0x%02x\",\"state\":\"%s\",\"dormant\":%s,\"battery\":%d,\"scene\":%d,\"changed\":%s,\"adv_count\":%d,\"raw\":\"%s\"}",
+                t.year, t.month, t.day_of_month, t.hour, t.minute, t.second,
+                flags, dormant ? "unknown" : (unlocked ? "unlocked" : "locked"), dormant ? "true" : "false",
+                battery, scene, changed ? "true" : "false", id(adv_count), hex);
+              id(mqtt_client).publish(changed ? "ttlock/measure/change" : "ttlock/measure/heartbeat", msg, 0, changed);
+              ESP_LOGI("ttlock", "%s", msg);
+              id(last_flags) = flags;
+              id(last_battery) = battery;
+              id(last_heartbeat) = now;
+            }
+  on_ble_advertise:
+    - mac_address: ${lock_mac}
+      then:
+        - lambda: |-
+            static uint32_t last_rssi_log = 0;
+            if (millis() - last_rssi_log > 30000) {
+              last_rssi_log = millis();
+              char msg[64];
+              snprintf(msg, sizeof(msg), "{\"rssi\":%d,\"name\":\"%s\"}", x.get_rssi(), x.get_name().c_str());
+              id(mqtt_client).publish("ttlock/measure/rssi", msg);
+              ESP_LOGI("ttlock", "rssi %d dBm", x.get_rssi());
+            }
