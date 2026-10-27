@@ -18,4 +18,9 @@ module.exports = {
     return { ok: true };
   },
 
+  // GET /ble-scan -> nearby BLE advertisements (diagnostic: is a lock within Homey's Bluetooth range?)
+  async bleScan({ homey, query }) {
+    return homey.app.bleScan(query || {});
+  },
+
 };

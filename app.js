@@ -121,6 +121,23 @@ class TTLockApp extends Homey.App {
     this.homey.settings.unset(SESSION_KEY);
   }
 
+  // Diagnostic for the settings page / API: which BLE devices does the Homey hear, and how strongly?
+  // query.service: optional service UUID filter (TTLock locks advertise 1910); query.timeout: scan ms.
+  async bleScan({ service, timeout } = {}) {
+    const filter = service ? [String(service)] : [];
+    const ms = Number(timeout) || undefined;
+    const advertisements = await this.homey.ble.discover(filter, ms);
+    return advertisements.map(ad => ({
+      address: ad.address,
+      uuid: ad.uuid,
+      localName: ad.localName,
+      rssi: ad.rssi,
+      serviceUuids: ad.serviceUuids,
+      manufacturerData: ad.manufacturerData ? Buffer.from(ad.manufacturerData).toString('hex') : undefined,
+      connectable: ad.connectable,
+    })).sort((a, b) => b.rssi - a.rssi);
+  }
+
 }
 
 module.exports = TTLockApp;

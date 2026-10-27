@@ -18,7 +18,9 @@
   "category": [
     "security"
   ],
-  "permissions": [],
+  "permissions": [
+    "homey:wireless:ble"
+  ],
   "brandColor": "#1E5EFF",
   "images": {
     "small": "/assets/images/small.png",
@@ -40,6 +42,10 @@
     "logout": {
       "method": "POST",
       "path": "/logout"
+    },
+    "bleScan": {
+      "method": "GET",
+      "path": "/ble-scan"
     }
   },
   "drivers": [
