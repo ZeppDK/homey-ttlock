@@ -325,7 +325,7 @@ class LockDevice extends Homey.Device {
 
   async refreshSignal() {
     const res = await this.homey.app.client.request('GET', '/v3/gateway/listByLock', { lockId: this.lockId });
-    // UNVERIFIED: docs list the item fields only; accept { list: [...] }, a bare array or a single object.
+    // verified on a real lock: { list: [...] }. A bare array or a single object are also accepted.
     const items = Array.isArray(res) ? res : (res.list || [res]);
     const rssi = items.map(item => Number(item.rssi)).filter(Number.isFinite);
     if (rssi.length) await this.setCapabilityValue('measure_signal_strength', Math.max(...rssi));

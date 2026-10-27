@@ -72,7 +72,7 @@ class TTLockApp extends Homey.App {
       return;
     }
     this.webhook = await this.homey.cloud.createWebhook(Homey.env.WEBHOOK_ID, Homey.env.WEBHOOK_SECRET, {});
-    // UNVERIFIED: TTLock expects the reply "success"; the Athom webhook relay may not let us send one.
+    // TTLock documents a reply body "success", which the Athom relay does not let us send; records still arrive (verified).
     this.webhook.on('message', args => this.onWebhook(args).catch(this.error));
     this.log('Webhook registered');
   }
