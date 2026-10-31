@@ -28,7 +28,13 @@
     "xlarge": "/assets/images/xlarge.png"
   },
   "author": {
-    "name": "Sepp"
+    "name": "Sepp Malec"
+  },
+  "homepage": "https://github.com/ZeppDK/homey-ttlock",
+  "source": "https://github.com/ZeppDK/homey-ttlock",
+  "support": "https://github.com/ZeppDK/homey-ttlock/issues",
+  "bugs": {
+    "url": "https://github.com/ZeppDK/homey-ttlock/issues"
   },
   "api": {
     "getWebhookUrl": {

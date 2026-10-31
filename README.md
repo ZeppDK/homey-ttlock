@@ -4,7 +4,7 @@ A [Homey](https://homey.app) (SDK v3) app for [TTLock](https://www.ttlock.com) s
 
 A local Bluetooth bridge (an ESP32 at the door, no cloud at runtime) is in progress; see [PLAN-4b.md](PLAN-4b.md).
 
-> Built for personal use and tested against one lock (SN667, firmware 6.7.x) and one G2 gateway. It is not in the Homey App Store. Install it with the Homey CLI as described below.
+> Built for personal use and tested against one lock (SN667, firmware 6.7.x) and one G2 gateway. It is published to the Homey App Store **test channel** only: install it from <https://homey.app/a/dk.sepp.ttlock/test/>, or with the Homey CLI as described below.
 
 ## Features
 
@@ -108,6 +108,10 @@ TTLock gateways have no local API (a full port scan shows nothing open), but the
 - [briis/ttlock-homey](https://github.com/briis/ttlock-homey) for the OAuth client pattern and the record-type map.
 - [jbergler/hass-ttlock](https://github.com/jbergler/hass-ttlock) for the cloud API reference and webhook handling.
 - [bazuchan/esphome-ttlock](https://github.com/bazuchan/esphome-ttlock), [roquerodrigo/ttlock-ble](https://github.com/roquerodrigo/ttlock-ble) and [n8henrie/ttlock-rs](https://github.com/n8henrie/ttlock-rs) for the BLE protocol work.
+
+## License
+
+[MIT](LICENSE).
 
 ## Disclaimer
 
