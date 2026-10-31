@@ -2,5 +2,9 @@
   "0.1.0": {
     "en": "First test release: lock, gateway and door sensor devices, 45 flow cards, webhook for real-time events. Requires your own TTLock developer application (client ID/secret) and a callback URL, see the description.",
     "da": "Første testudgave: lås-, gateway- og dørsensor-enheder, 45 flow-kort, webhook til hændelser i realtid. Kræver din egen TTLock-udviklerapplikation (client ID/secret) og en callback-URL, se beskrivelsen."
+  },
+  "0.1.1": {
+    "en": "First test release: lock, gateway and door sensor devices, 45 flow cards, webhook for real-time events. Requires your own TTLock developer application (client ID/secret) and a callback URL, see the description.",
+    "da": "Første testudgave: lås-, gateway- og dørsensor-enheder, 45 flow-kort, webhook til hændelser i realtid. Kræver din egen TTLock-udviklerapplikation (client ID/secret) og en callback-URL, se beskrivelsen."
   }
 }

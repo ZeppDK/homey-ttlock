@@ -1,6 +1,6 @@
 {
   "id": "dk.sepp.ttlock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
