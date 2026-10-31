@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960"><path fill="#000" fill-rule="evenodd" d="M480 100c-110 0-200 90-200 200v100h-60c-33 0-60 27-60 60v320c0 33 27 60 60 60h520c33 0 60-27 60-60V460c0-33-27-60-60-60h-60V300c0-110-90-200-200-200zm0 100c55 0 100 45 100 100v100H380V300c0-55 45-100 100-100zm0 400c33 0 60 27 60 60 0 22-12 41-30 52v68h-60v-68c-18-11-30-30-30-52 0-33 27-60 60-60z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <!-- Lock device: smart lock panel with keypad and fingerprint reader. Single colour mask. -->
+  <path fill="#000" fill-rule="evenodd" d="M330 40h300c66 0 120 54 120 120v640c0 66-54 120-120 120H330c-66 0-120-54-120-120V160c0-66 54-120 120-120zm0 80c-22 0-40 18-40 40v640c0 22 18 40 40 40h300c22 0 40-18 40-40V160c0-22-18-40-40-40H330z"/>
+  <g fill="#000">
+    <!-- keypad 3x3 -->
+    <circle cx="380" cy="230" r="38"/><circle cx="480" cy="230" r="38"/><circle cx="580" cy="230" r="38"/>
+    <circle cx="380" cy="330" r="38"/><circle cx="480" cy="330" r="38"/><circle cx="580" cy="330" r="38"/>
+    <circle cx="380" cy="430" r="38"/><circle cx="480" cy="430" r="38"/><circle cx="580" cy="430" r="38"/>
+  </g>
+  <!-- fingerprint reader: ring + two arcs -->
+  <path fill="#000" fill-rule="evenodd" d="M480 560c-83 0-150 67-150 150s67 150 150 150 150-67 150-150-67-150-150-150zm0 50c55 0 100 45 100 100s-45 100-100 100-100-45-100-100 45-100 100-100z"/>
+  <path fill="none" stroke="#000" stroke-width="26" stroke-linecap="round" d="M430 712c0-28 22-50 50-50s50 22 50 50M452 760c-12-12-22-28-22-48"/>
+</svg>

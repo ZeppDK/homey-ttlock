@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <!-- Lock device image: smart lock unit, front view, on white. -->
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2B3040"/><stop offset="1" stop-color="#141824"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#34D399" stop-opacity="0.35"/><stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="#FFFFFF"/>
+  <ellipse cx="500" cy="900" rx="220" ry="26" fill="#000" opacity="0.08"/>
+  <circle cx="500" cy="430" r="330" fill="url(#glow)"/>
+  <!-- body -->
+  <rect x="330" y="100" width="340" height="780" rx="90" fill="url(#body)"/>
+  <rect x="346" y="116" width="308" height="748" rx="80" fill="none" stroke="#4A5168" stroke-width="4"/>
+  <!-- keypad -->
+  <g fill="#34D399">
+    <g opacity="0.95">
+      <circle cx="420" cy="240" r="22"/><circle cx="500" cy="240" r="22"/><circle cx="580" cy="240" r="22"/>
+      <circle cx="420" cy="330" r="22"/><circle cx="500" cy="330" r="22"/><circle cx="580" cy="330" r="22"/>
+      <circle cx="420" cy="420" r="22"/><circle cx="500" cy="420" r="22"/><circle cx="580" cy="420" r="22"/>
+      <circle cx="420" cy="510" r="22"/><circle cx="500" cy="510" r="22"/><circle cx="580" cy="510" r="22"/>
+    </g>
+  </g>
+  <!-- fingerprint reader -->
+  <circle cx="500" cy="700" r="92" fill="#0B0E17"/>
+  <circle cx="500" cy="700" r="92" fill="none" stroke="#34D399" stroke-width="8"/>
+  <g fill="none" stroke="#34D399" stroke-width="9" stroke-linecap="round">
+    <path d="M452 706c0-27 21-48 48-48s48 21 48 48"/>
+    <path d="M470 740c-9-10-14-22-14-34 0-24 20-44 44-44s44 20 44 44c0 12-3 22-9 32"/>
+    <path d="M500 690c-9 0-16 7-16 16 0 12 6 22 14 30"/>
+  </g>
+  <!-- bottom speaker slots -->
+  <g fill="#3A4052"><rect x="440" y="820" width="120" height="8" rx="4"/><rect x="460" y="836" width="80" height="8" rx="4"/></g>
+</svg>

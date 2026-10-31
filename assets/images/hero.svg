@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+  <!-- App store image: a front door with a smart lock, flat vector illustration. -->
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7F1E8"/><stop offset="1" stop-color="#EADFD1"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CBBFAF"/><stop offset="1" stop-color="#B8AA98"/>
+    </linearGradient>
+    <linearGradient id="door" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1F3D66"/><stop offset="1" stop-color="#2A4F80"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFD98A" stop-opacity="0.75"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="padGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#34D399" stop-opacity="0.9"/><stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- wall and floor -->
+  <rect width="1000" height="700" fill="url(#wall)"/>
+  <rect y="560" width="1000" height="140" fill="url(#floor)"/>
+  <rect y="556" width="1000" height="10" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- wall lamp -->
+  <circle cx="190" cy="230" r="150" fill="url(#lampGlow)"/>
+  <rect x="176" y="150" width="28" height="80" rx="6" fill="#2B2F3A"/>
+  <path d="M150 230h80l14 60h-108z" fill="#2B2F3A"/>
+  <rect x="166" y="292" width="48" height="10" rx="4" fill="#FFE7A8"/>
+
+  <!-- plant -->
+  <path d="M818 560h84l-10-120h-64z" fill="#C6713E"/>
+  <path d="M812 440h96v22h-96z" fill="#D98650"/>
+  <g fill="#3F8F5A">
+    <path d="M860 440c-10-60-60-90-110-80 20 40 60 70 110 80z"/>
+    <path d="M860 440c10-70 60-110 120-100-20 50-70 90-120 100z"/>
+    <path d="M860 440c-40-30-50-90-30-140 30 40 50 90 30 140z"/>
+    <path d="M860 440c40-40 90-50 130-30-40 30-90 40-130 30z"/>
+  </g>
+  <path d="M860 440c-4-40-20-80-40-110" stroke="#2F6E45" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- door frame -->
+  <rect x="330" y="70" width="340" height="490" rx="6" fill="#FFFFFF"/>
+  <rect x="330" y="70" width="340" height="490" rx="6" fill="none" stroke="#DCD3C6" stroke-width="4"/>
+  <!-- door leaf -->
+  <rect x="352" y="92" width="296" height="468" fill="url(#door)"/>
+  <!-- panels -->
+  <g fill="none" stroke="#16304F" stroke-width="6" opacity="0.9">
+    <rect x="384" y="124" width="100" height="150" rx="4"/>
+    <rect x="516" y="124" width="100" height="150" rx="4"/>
+    <rect x="384" y="310" width="100" height="210" rx="4"/>
+    <rect x="516" y="310" width="100" height="210" rx="4"/>
+  </g>
+  <g fill="#1B3659" opacity="0.6">
+    <rect x="394" y="134" width="80" height="130" rx="3"/>
+    <rect x="526" y="134" width="80" height="130" rx="3"/>
+    <rect x="394" y="320" width="80" height="190" rx="3"/>
+    <rect x="526" y="320" width="80" height="190" rx="3"/>
+  </g>
+  <!-- door light edge -->
+  <rect x="352" y="92" width="6" height="468" fill="#4A6F9E" opacity="0.6"/>
+
+  <!-- smart lock unit -->
+  <circle cx="618" cy="345" r="80" fill="url(#padGlow)"/>
+  <rect x="588" y="272" width="60" height="150" rx="18" fill="#1E2230"/>
+  <rect x="592" y="276" width="52" height="142" rx="16" fill="none" stroke="#3A4052" stroke-width="3"/>
+  <!-- keypad -->
+  <g fill="#34D399">
+    <circle cx="605" cy="300" r="4.5"/><circle cx="618" cy="300" r="4.5"/><circle cx="631" cy="300" r="4.5"/>
+    <circle cx="605" cy="316" r="4.5"/><circle cx="618" cy="316" r="4.5"/><circle cx="631" cy="316" r="4.5"/>
+    <circle cx="605" cy="332" r="4.5"/><circle cx="618" cy="332" r="4.5"/><circle cx="631" cy="332" r="4.5"/>
+    <circle cx="605" cy="348" r="4.5"/><circle cx="618" cy="348" r="4.5"/><circle cx="631" cy="348" r="4.5"/>
+  </g>
+  <!-- fingerprint reader -->
+  <circle cx="618" cy="385" r="16" fill="#0F1320"/>
+  <circle cx="618" cy="385" r="16" fill="none" stroke="#34D399" stroke-width="2.5"/>
+  <path d="M610 385a8 8 0 0 1 16 0M613 391a6 6 0 0 1-1-6" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+  <!-- handle -->
+  <rect x="548" y="398" width="54" height="14" rx="7" fill="#D4A24C"/>
+  <rect x="588" y="392" width="16" height="26" rx="5" fill="#B9893A"/>
+
+  <!-- status badge: locked -->
+  <g transform="translate(118 390)">
+    <rect width="150" height="64" rx="32" fill="#FFFFFF" stroke="#E2DACF" stroke-width="2"/>
+    <circle cx="36" cy="32" r="14" fill="#34D399"/>
+    <path d="M78 26h12v-7a16 16 0 0 1 32 0v7h12v30H78z M98 26h16v-7a8 8 0 0 0-16 0z" fill="#1E2230" fill-rule="evenodd"/>
+  </g>
+
+  <!-- door mat -->
+  <rect x="380" y="600" width="240" height="40" rx="6" fill="#8C6A4A"/>
+  <rect x="392" y="608" width="216" height="24" rx="4" fill="#A47E58"/>
+</svg>

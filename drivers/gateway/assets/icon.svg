@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960"><path fill="#000" fill-rule="evenodd" d="M180 560h600c44 0 80 36 80 80v120c0 44-36 80-80 80H180c-44 0-80-36-80-80V640c0-44 36-80 80-80zm60 100c-22 0-40 18-40 40s18 40 40 40 40-18 40-40-18-40-40-40zm160 0c-22 0-40 18-40 40s18 40 40 40 40-18 40-40-18-40-40-40zM460 140h40v140h-40zM480 300c-58 0-110 24-148 62l42 42c28-28 66-44 106-44s78 16 106 44l42-42c-38-38-90-62-148-62zm0-140c-97 0-185 40-248 104l42 42c52-53 124-86 206-86s154 33 206 86l42-42c-63-64-151-104-248-104z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <!-- Gateway: wall-plug box with status LED and radio waves. Single colour mask. -->
+  <path fill="#000" fill-rule="evenodd" d="M250 420h460c55 0 100 45 100 100v300c0 55-45 100-100 100H250c-55 0-100-45-100-100V520c0-55 45-100 100-100zm0 80c-11 0-20 9-20 20v300c0 11 9 20 20 20h460c11 0 20-9 20-20V520c0-11-9-20-20-20H250z"/>
+  <!-- LED -->
+  <circle cx="480" cy="670" r="46" fill="#000"/>
+  <!-- waves -->
+  <path fill="none" stroke="#000" stroke-width="56" stroke-linecap="round" d="M330 300c83-80 217-80 300 0M240 200c133-128 347-128 480 0"/>
+  <circle cx="480" cy="360" r="40" fill="#000"/>
+</svg>

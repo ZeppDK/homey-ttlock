@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960"><path fill="#000" fill-rule="evenodd" d="M240 100h480c33 0 60 27 60 60v640h60v60H120v-60h60V160c0-33 27-60 60-60zm20 80v620h440V180zm300 320c-22 0-40 18-40 40s18 40 40 40 40-18 40-40-18-40-40-40z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <!-- Door sensor: ajar door with a contact sensor and magnet on the frame. Single colour mask. -->
+  <!-- frame -->
+  <path fill="#000" fill-rule="evenodd" d="M150 60h380c33 0 60 27 60 60v780c0 33-27 60-60 60H150c-33 0-60-27-60-60V120c0-33 27-60 60-60zm10 80v740h350V140H160z"/>
+  <!-- door leaf, swung open -->
+  <path fill="#000" d="M200 190 440 120v690l-240-70z"/>
+  <!-- handle (cut-out) -->
+  <circle cx="400" cy="470" r="26" fill="#fff"/>
+  <!-- sensor on frame -->
+  <rect x="610" y="330" width="90" height="300" rx="30" fill="#000"/>
+  <!-- magnet on door edge -->
+  <rect x="730" y="400" width="60" height="160" rx="20" fill="#000"/>
+  <!-- waves -->
+  <path fill="none" stroke="#000" stroke-width="40" stroke-linecap="round" d="M760 300c70 40 110 110 110 180M760 660c70-40 110-110 110-180"/>
+</svg>
