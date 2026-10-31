@@ -18,8 +18,8 @@ const ENV = {
 
 const ITEM = {
   lockAlias: 'Front Door',
-  lockName: 'RX-ODS_d22e9e',
-  lockMac: '96:FE:37:9E:2E:D2',
+  lockName: 'RX-ODS_abcdef',
+  lockMac: 'AA:BB:CC:DD:EE:FF',
   lockId: 667,
   aesKeyStr: Array(16).fill('a').join(','),
   adminPwd: encodeSecret('2468013579', 0x21),
@@ -69,7 +69,7 @@ test('prints a secrets block, logs in with an md5 password and calls key/list wi
   assert.match(out, /^front_door_aes_key: "0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a"$/m);
   assert.match(out, /^front_door_admin_ps: 2468013579$/m);
   assert.match(out, /^front_door_unlock_key: 135792468$/m);
-  assert.match(out, /mac: 96:FE:37:9E:2E:D2/);
+  assert.match(out, /mac: AA:BB:CC:DD:EE:FF/);
   assert.match(out, /protocol_type: 5/);
   for (const secret of ['SECRET-ACCESS-TOKEN', 'SECRET-REFRESH', 'hunter2', 'csecret']) {
     assert.ok(!out.includes(secret) && !stderr.text().includes(secret), `${secret} leaked`);

@@ -4,7 +4,7 @@ Dato: 2026-10-26. Research-grundlag ligger i `docs/research/` (TTLock cloud-API,
 
 ## 1. Konklusioner fra research
 
-**Gateway'en kan ikke styres lokalt.** Portscan af 10.14.12.148 (TCP 1–65535) gav nul åbne porte, og ingen har nogensinde fundet en lokal API på G2/G3/G4. Den taler kun en proprietær, AES-krypteret binær protokol til TTLock's cloud. En "gateway-IP"-indstilling i appen giver derfor ingen mening og droppes.
+**Gateway'en kan ikke styres lokalt.** Portscan af gateway'en (TCP 1–65535) gav nul åbne porte, og ingen har nogensinde fundet en lokal API på G2/G3/G4. Den taler kun en proprietær, AES-krypteret binær protokol til TTLock's cloud. En "gateway-IP"-indstilling i appen giver derfor ingen mening og droppes.
 
 **"Lokalt" betyder derfor BLE direkte til låsen.** Det er reelt og aktivt vedligeholdt i 2026 (roquerodrigo/ttlock-ble, bazuchan/esphome-ttlock, n8henrie/ttlock-rs). Opskriften er hybrid: nøgler (AES-key, lockData) hentes én gang fra cloud'en via `/v3/key/list`, derefter går alle kommandoer over Bluetooth uden cloud. Homey Pro har BLE-API'et der skal til, men ingen har endnu kørt TTLock-protokollen på Homey, og Homey'en skal stå i BLE-rækkevidde af låsen (ca. under -80 dBm).
 

@@ -1,7 +1,7 @@
 # TTLock local control research (gateway + BLE), as of 2026-10-26
 
 ## Verdict
-- **No local LAN API on the gateway.** Confirmed by research and by a full TCP portscan (1-65535) of the user's gateway at 10.14.12.148: zero open ports. The gateway is a cloud-relay device only.
+- **No local LAN API on the gateway.** Confirmed by research and by a full TCP portscan (1-65535) of the user's gateway: zero open ports. The gateway is a cloud-relay device only.
 - **Direct BLE control without the cloud is real and actively maintained (2026).** Credentials come from the cloud once (`/v3/key/list` → lockData/aesKey), then every operation is local BLE.
 - Options for Homey: (a) cloud+gateway (zero hardware, proven), (b) direct BLE from Homey Pro (unproven on Homey, range-limited), (c) local bridge (ESP32 BT proxy / Pi / Unraid container) exposing MQTT/REST.
 

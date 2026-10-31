@@ -76,8 +76,8 @@ test('normalizeAesKey rejects keys that are not 16 bytes or not hex', () => {
 const AES = 'bc,3c,b6,1,2,3,4,5,6,7,8,9,a,b,c,d';
 const keyItem = (overrides = {}) => ({
   lockAlias: 'Front Door',
-  lockName: 'RX-ODS_d22e9e',
-  lockMac: '96:FE:37:9E:2E:D2',
+  lockName: 'RX-ODS_abcdef',
+  lockMac: 'AA:BB:CC:DD:EE:FF',
   lockId: 667,
   aesKeyStr: AES,
   adminPwd: encodeSecret('2468013579', 0x21),
@@ -97,8 +97,8 @@ test('toSecrets builds the secrets object for an admin key', () => {
     aes_key: 'bc3cb60102030405060708090a0b0c0d',
     admin_ps: 2468013579,
     unlock_key: 135792468,
-    lock_mac: '96:FE:37:9E:2E:D2',
-    lock_name: 'RX-ODS_d22e9e',
+    lock_mac: 'AA:BB:CC:DD:EE:FF',
+    lock_name: 'RX-ODS_abcdef',
     protocol_type: 5,
     protocol_version: 3,
     scene: 2,
@@ -137,7 +137,7 @@ test('secretsYaml renders quoted aes key, integer secrets and the lock block', (
     'front_door_admin_ps: 2468013579',
     'front_door_unlock_key: 135792468',
     '',
-    '# lock: platform ttlock config for RX-ODS_d22e9e (96:FE:37:9E:2E:D2):',
+    '# lock: platform ttlock config for RX-ODS_abcdef (AA:BB:CC:DD:EE:FF):',
     '#   protocol_type: 5',
     '#   protocol_version: 3',
     '#   scene: 2',
@@ -156,6 +156,6 @@ test('secretsYaml comments out missing secrets', () => {
 test('prefixFromAlias: ascii lowercase, non-alphanumerics become underscores', () => {
   assert.strictEqual(prefixFromAlias({ lockAlias: 'Front Door #2' }), 'front_door_2');
   assert.strictEqual(prefixFromAlias({ lockAlias: 'Hovedør' }), 'hoved_r');
-  assert.strictEqual(prefixFromAlias({ lockAlias: '  ', lockName: 'RX-ODS_d22e9e' }), 'rx_ods_d22e9e');
+  assert.strictEqual(prefixFromAlias({ lockAlias: '  ', lockName: 'RX-ODS_abcdef' }), 'rx_ods_abcdef');
   assert.strictEqual(prefixFromAlias({ lockId: 7 }), 'lock_7');
 });

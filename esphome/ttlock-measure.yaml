@@ -6,7 +6,7 @@
 # Lyt:    python mqtt-listen.py             (abonnerer på ttlock/measure/#)
 
 substitutions:
-  lock_mac: "96:FE:37:9E:2E:D2"
+  lock_mac: !secret ttlock_lock_mac
 
 esphome:
   name: ttlock-measure
@@ -34,7 +34,7 @@ time:
 
 mqtt:
   id: mqtt_client
-  broker: 192.168.3.78
+  broker: !secret mqtt_broker
   username: !secret mqtt_user
   password: !secret mqtt_password
   topic_prefix: ttlock/measure

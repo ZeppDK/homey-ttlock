@@ -1,6 +1,6 @@
 """Lytter på ttlock/measure/# på Homey's MQTT-broker og skriver hver besked med lokal tid.
 Brug: .venv/Scripts/python.exe mqtt-listen.py [sekunder]  (default: kør indtil Ctrl+C)
-Login læses fra secrets.yaml (mqtt_user / mqtt_password)."""
+Broker og login læses fra secrets.yaml (se secrets.yaml.example)."""
 import sys, time, re, pathlib
 import paho.mqtt.client as mqtt
 
@@ -9,7 +9,7 @@ def secret(key):
     m = re.search(rf'^{key}:\s*"?([^"\n]*)"?\s*$', secrets, re.M)
     return m.group(1) if m else None
 
-BROKER, PORT = "192.168.3.78", 1883
+BROKER, PORT = secret("mqtt_broker"), 1883
 duration = float(sys.argv[1]) if len(sys.argv) > 1 else None
 log = pathlib.Path(__file__).with_name("measure.log")
 
